@@ -1,0 +1,55 @@
+
+<div th:replace="shared/header"></div>
+
+ <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">
+              	<a th:href="@{${pageURI}+'/create/'}" class="btn btn-sm btn-primary">
+                			<span class="glyphicon glyphicon-plus"></span>
+               </a>
+               </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th style="width: 350px">Name</th>
+                  <th >Color</th>
+                  <th style="width: 250px">Action</th>
+                </tr>
+                <tr th:each="record:${records}">
+                	<td th:text="${record.id}"></td>
+                	<td th:text=${record.followupName}></td>
+                	<td th:text=${record.followupCode} th:style="'background:'+${record.color} "></td>
+                	<td>
+                		<a th:href="@{${pageURI}+'/edit/'+  ${record.id}}" class="btn btn-sm btn-success">
+                			<span class="glyphicon glyphicon-pencil"></span>
+                		</a>
+                		<a th:href="@{${pageURI}+'/delete/'+  ${record.id}}" class="btn btn-sm btn-danger">
+                			<span class="glyphicon glyphicon-trash"></span>
+                		</a>
+                	</td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.box -->
+
+            
+</div>
+      
+
+<div th:replace="shared/footer"></div>
